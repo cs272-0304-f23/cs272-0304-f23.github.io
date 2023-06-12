@@ -16,9 +16,10 @@ permalink: /help/
 
 ### Online Resources
 
-[Official Go documentation](https://go.dev/doc/)
-<br>
-[Go By Example](https://gobyexample.com/)
+1. [Official Go documentation](https://go.dev/doc/)
+1. [Go By Example](https://gobyexample.com/)
+1. [GoBridge](http://golangbridge.org/)
+1. [Women Who Go](https://womenwhogo.org/)
 
 ### Drop-In Office Hours
 
