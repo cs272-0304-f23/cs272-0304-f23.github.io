@@ -1,7 +1,7 @@
 ---
 layout: assignment
 due: 2023-08-25 23:59:59 -0800
-url: https://classroom.github.com/a/p2ShvdwK
+github_url: https://classroom.github.com/a/p2ShvdwK
 ---
 
 ## Setting up your Terminal Environment
