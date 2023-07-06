@@ -4,7 +4,7 @@ due: 2023-08-25 23:59:59 -0800
 github_url: https://classroom.github.com/a/p2ShvdwK
 ---
 
-## Setting up your Terminal Environment
+## Step 1: Set up your terminal environment
 
 1. For this course, you will develop software locally on your laptop. If you are not familiar with the Unix shell, please review my [Shell Basics](https://github.com/usfca-cs-tools/docs/blob/main/shell-basics.md) document.
 1. Terminal setup (<a onclick="toggle_display('terminal_mac')">Mac</a>, <a onclick="toggle_display('terminal_win')">Windows</a>)
@@ -22,9 +22,12 @@ github_url: https://classroom.github.com/a/p2ShvdwK
     </div>
 
 1. You may use the terminal-mode editor of your choice (e.g. micro, nano, vim, emacs)
-1. Set up ssh so you can use github.com from your laptop ([steps](https://github.com/usfca-cs-tools/docs/blob/main/ssh-setup.md))
 
-## Set up your Go toolchain
+## Step 2: Set up `ssh` for local development
+
+1. Follow [these steps](/docs/ssh-local-setup.html) (shared with my CS 221 course)
+
+## Step 3: Set up your Go toolchain
 1. Install the [Go toolchain](https://go.dev/dl/). Be careful to choose the right build for your laptop (<a onclick="toggle_display('go_mac')">Mac</a>, <a onclick="toggle_display('go_win')">Windows</a>)
 
     <div id="go_mac" class="div-toggle" style="display:none" markdown=1>
@@ -87,17 +90,22 @@ github_url: https://classroom.github.com/a/p2ShvdwK
 
 ## Given
 
-Here is a simple `go` program which prints `Hello, World` into the terminal
-```go
-package main
+1. Clone the lab01 repo using the link above and `cd` into that directory
+1. Use your preferred editor to enter this `go` program, which prints `Hello, World` into the terminal
+    ```go
+    package main
 
-import "fmt"
+    import "fmt"
 
-func main() {
-    fmt.Println("Hello, World")
-}
-```
-
+    func main() {
+        fmt.Println("Hello, World")
+    }
+    ```
+1. To run the program
+    ```sh
+    $ go run main.go
+    Hello, World
+    ```
 ## Rubric
 1. 100 pts
     1. Commit and push your Hello World
