@@ -25,9 +25,10 @@ github_url: https://classroom.github.com/a/p2ShvdwK
 
 ## Step 2: Set up `ssh` for local development
 
-1. Follow [these steps](/docs/ssh-local-setup.html) (shared with my CS 221 course)
+1. Follow [these steps](https://cs221-03-f23.github.io/docs/ssh-local-setup.html) (shared with my CS 221 course)
 
 ## Step 3: Set up your Go toolchain
+
 1. Install the [Go toolchain](https://go.dev/dl/). Be careful to choose the right build for your laptop (<a onclick="toggle_display('go_mac')">Mac</a>, <a onclick="toggle_display('go_win')">Windows</a>)
 
     <div id="go_mac" class="div-toggle" style="display:none" markdown=1>
@@ -63,6 +64,7 @@ github_url: https://classroom.github.com/a/p2ShvdwK
     ```sh
     go install github.com/go-delve/delve/cmd/dlv@latest
     ```
+
 1. Edit your shell config file (<a onclick="toggle_display('dlv_mac')">Mac</a>, <a onclick="toggle_display('dlv_win')">Windows</a>)
 
     <div id="dlv_mac" class="div-toggle" style="display:none" markdown=1>
@@ -84,8 +86,10 @@ github_url: https://classroom.github.com/a/p2ShvdwK
     phil@Phils-MBP:~ % which dlv
     /Users/phil/go/bin/dlv
     ```
+
 1. Optional: If you want to use an Integrated Development Environment (IDE), you may use [VS Code](https://code.visualstudio.com/). 
     1. VS Code will offer to install extensions for `go` and `gopls`. You should accept both. 
+
 1. Unsupported: There is a Go-specific IDE called [GoLand](https://www.jetbrains.com/go/) that you're welcome to try. I won't be supporting it.
 
 ## Given
@@ -106,7 +110,9 @@ github_url: https://classroom.github.com/a/p2ShvdwK
     $ go run main.go
     Hello, World
     ```
+
 ## Rubric
+
 1. 100 pts
     1. Commit and push your Hello World
     1. Show me your environment working during the Week 1 lab section.
