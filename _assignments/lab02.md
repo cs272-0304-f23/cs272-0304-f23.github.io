@@ -76,6 +76,6 @@ https://gobyexample.com/
 Recall the testing example we covered in class [here]().
 
 ## Rubric
-> Your lab will receive the score indicated by the GitHub autograding action using this rubric:
+Your lab will receive the score indicated by the GitHub autograding action using this rubric:
 1. 80 points: TestExtract (do you extract the correct words and hrefs).
 1. 20 points: TestCleanHref (do you clean the hrefs accurately)

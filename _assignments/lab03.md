@@ -1,11 +1,11 @@
---
+---
 layout: assignment
 due: 2023-09-11 23:59:59 -0800
 github_url: https://classroom.github.com/a/piZ4HSTb
 ---
 
 ## Requirements
-> Lab03 would layer http get on top?
+Lab03 adds support for http
 
 1. You will develop and test a Web Scraper on top of your previous lab
 1. Your implementation must compile and pass *your* tests `TestDownload` and `TestCrawl`
@@ -48,6 +48,6 @@ Recall the testing example we covered in class [here]() where we mock an http se
 `httptest` package for mocking servers in your tests.
 
 ## Rubric
-> Your lab will receive the score indicated by the GitHub autograding action using this rubric:
+Your lab will receive the score indicated by the GitHub autograding action using this rubric:
 1. 30 points: TestDownload (do you download the correct content)
 1. 70 points: TestCrawl (can you crawl a given seed url and download it along with all of the links embedded within)
