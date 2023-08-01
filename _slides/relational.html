@@ -1,4 +1,5 @@
 ---
+title: Relational DBs
 layout: raw
 ---
 
@@ -13,17 +14,18 @@ we have to write it onto a disk (or a lot of disks)
 
 # Databases 2
 
-1. The universe of databases is divided generally into two warring camps:
-1. Relational Databases use a Schema where each row is an entry 
-and each column is an attribute of that entry
-1. Non-Relational databases, where Documents contain attributes, but no schema
+The universe of databases is divided generally into two warring camps:
+
+1. Relational Databases use Tables where each row is an entry 
+and each column is an Attribute of that entry.
+1. Non-Relational databases, where Documents contain Attributes
 
 ---
 
 # Relational DBs
 
 1. Rely on a schema which contains rules about which tables can contain which attributes
-1. [Referential Integrity](https://en.wikipedia.org/wiki/Referential_integrity) enforces 
+1. <a href=https://en.wikipedia.org/wiki/Referential_integrity target="_blank">Referential Integrity</a> enforces 
 the relationships defined in the schema
 1. We can create, update (modify) and delete elements of a table, as long as 
 the changes obey the rules specified in the schema
@@ -33,27 +35,29 @@ the changes obey the rules specified in the schema
 
 # Entity Relationships 
 
-1. ER diagrams help define a schema. Proposed by 
-[Peter Chen](https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model)
+1. ER diagrams help define a schema
 1. Draw some examples
 1. How might our search engine use ER models?
+
+<a href=https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model target="_blank">Proposed</a> by 
+Peter Chen
 
 ---
 
 # Document DBs
 
-1. If your data model isn't relational, perhaps the rigidity of a relational DB isn't helpful?
-1. Imagine a database which indexes [JSON](https://en.wikipedia.org/wiki/JSON) documents
+1. If your data isn't relational, perhaps the rigidity of a relational DB isn't helpful?
 1. Maybe it's not important that all documents contain the same attributes?
+1. Imagine a database which indexes <a href=https://en.wikipedia.org/wiki/JSON target="_blank">JSON</a> documents
 1. How might our search engine use a Document DB?
 
 ---
 
 # Scalability
 
-1. If you're building a search engine for a company, vertical scalability 
+1. If you're building a search engine for a company, **vertical scalability** 
 (bigger disk, faster computer) might be enough
-1. If you're building a global-scale search engine, horizontal scalability
+1. If you're building a global-scale search engine, **horizontal scalability**
 (more computers, more disks) will be required
 
 ---
@@ -79,5 +83,6 @@ Proposed by [Jim Gray](https://en.wikipedia.org/wiki/Jim_Gray_(computer_scientis
 
 # CS 272
 
-1. We will use a relational DB for this course
+1. We will use a relational DB for this course, even though a search 
+engine is not a classically relational problem
 1. Hopefully the exposure will be valuable 
