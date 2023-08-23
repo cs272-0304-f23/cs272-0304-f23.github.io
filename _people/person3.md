@@ -1,6 +1,6 @@
 ---
 name: "Yordanos Solomon"
 role: "Teaching Assistant"
-email: "user3@example.com"
-office_hours: "TBD in CS Labs"
+email: "ybsolomon@dons.usfca.edu"
+office_hours: "MWF 11:00 - 12:20 on https://usfca.zoom.us/j/87880443992"
 ---
