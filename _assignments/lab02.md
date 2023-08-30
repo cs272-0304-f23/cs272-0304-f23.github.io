@@ -73,7 +73,7 @@ https://gobyexample.com/
 
 ## Given
 
-Recall the testing example we covered in class [here]().
+Recall the testing example we covered in class [here](https://github.com/cs272-0304-f23/inclass/tree/main/week02).
 
 ## Rubric
 Your lab will receive the score indicated by the GitHub autograding action using this rubric:
