@@ -50,6 +50,7 @@ ordered-categories:
   - "Front-End Development"
   - "Concurrency"
   - "Database"
+  - "Web Crawler"
   - "Intro to Go"
 
 reveal:
