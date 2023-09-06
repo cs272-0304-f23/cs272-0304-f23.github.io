@@ -2,7 +2,7 @@
 layout: assignment
 due: 2023-09-18 23:59:59 -0800
 url: https://classroom.github.com/a/WmJMG2FO
-published: true
+published: false
 ---
 ## Requirements
 1. You will build a web crawler which incorporates the elements of the prior lab assignments, including their test cases: 
