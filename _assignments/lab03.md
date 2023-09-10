@@ -51,7 +51,6 @@ In lecture, we will demonstrate:
 1. the [`net/http`](https://pkg.go.dev/net/http) client
 1. [`net/http/httptest`](https://pkg.go.dev/net/http/httptest) for "mocking" a server
 1. Go maps (hash tables)
-1. [Snowball stemmer](https://github.com/kljensen/snowball)
 1. Simple web page [test cases](https://cs272-0304-f23.github.io/tests/lab03/). You can copy the HTML source into your test code.
 
 ## Rubric
