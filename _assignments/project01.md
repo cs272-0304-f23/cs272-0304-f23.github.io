@@ -24,5 +24,5 @@ In lecture meetings we will discuss and provide sample code for:
 1. Web servers in Go
 
 ## Rubric
-1. 80 pts: correctness as shown by the autograder workflow on github.com
-1. 20 pts: code review meeting with the instructor or TA
+1. 70 pts: correctness as shown by the autograder workflow on github.com
+1. 30 pts: code review meeting with the instructor or TA
