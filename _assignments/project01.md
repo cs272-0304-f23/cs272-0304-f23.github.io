@@ -1,7 +1,7 @@
 ---
 layout: assignment
 due: 2023-09-18 23:59:59 -0800
-url: https://classroom.github.com/a/WmJMG2FO
+github_url: https://classroom.github.com/a/WmJMG2FO
 published: true
 ---
 ## Requirements
