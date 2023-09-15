@@ -13,7 +13,9 @@ published: true
     1. An in-memory inverted index based on Go's `map`
     1. An HTTP server which can search an index
     1. [Snowball stemmer](https://github.com/kljensen/snowball)
-1. Required test cases coming soon
+1. Your solution will crawl the text of [Romeo and Juliet](/tests/rnj/), which I got from [Project Gutenberg](https://www.gutenberg.org/) and divided
+into an HTML document per scene.
+1. I will add some test cases to count some terms
 
 ## Given
 
