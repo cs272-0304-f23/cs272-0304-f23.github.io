@@ -15,7 +15,30 @@ published: true
     1. [Snowball stemmer](https://github.com/kljensen/snowball)
 1. Your solution will crawl the text of [Romeo and Juliet](/tests/rnj/), which I got from [Project Gutenberg](https://www.gutenberg.org/) and divided
 into an HTML document per scene.
-1. I will add some test cases to count some terms
+1. You will write a `TestSearch` function which tests these three cases for the inverted index, returning the term frequency for each one (i.e. the map of string to frequency)
+    1. Search `https://cs272-0304-f23.github.io/tests/rnj/sceneI_30.0.html` for `Verona` should find one hit:
+        ```
+        "https://cs272-0304-f23.github.io/tests/rnj/sceneI_30.0.html": 1
+        ```
+    1. Search `https://cs272-0304-f23.github.io/tests/rnj/sceneI_30.1.html` for `Benvolio` should return 26 hits:
+        ```
+        "https://cs272-0304-f23.github.io/tests/rnj/sceneI_30.1.html": 26
+        ```
+    1. Search `https://cs272-0304-f23.github.io/tests/rnj/` for `Romeo` should return these hits:
+        ```
+        "https://cs272-0304-f23.github.io/tests/rnj/sceneI_30.0.html":  2,
+        "https://cs272-0304-f23.github.io/tests/rnj/sceneI_30.1.html":  22,
+        "https://cs272-0304-f23.github.io/tests/rnj/sceneI_30.3.html":  2,
+        "https://cs272-0304-f23.github.io/tests/rnj/sceneI_30.4.html":  17,
+        "https://cs272-0304-f23.github.io/tests/rnj/sceneI_30.5.html":  15,
+        "https://cs272-0304-f23.github.io/tests/rnj/sceneII_30.2.html": 42,
+        "https://cs272-0304-f23.github.io/tests/rnj/":                  200,
+        "https://cs272-0304-f23.github.io/tests/rnj/sceneI_30.2.html":  15,
+        "https://cs272-0304-f23.github.io/tests/rnj/sceneII_30.0.html": 3,
+        "https://cs272-0304-f23.github.io/tests/rnj/sceneII_30.1.html": 10,
+        "https://cs272-0304-f23.github.io/tests/rnj/sceneII_30.3.html": 13,
+        ```
+1. You can use `reflect.DeepEqual()` to test the equivalence of your `got` map and your `want` map
 
 ## Given
 
@@ -27,4 +50,6 @@ In lecture meetings we will discuss and provide sample code for:
 
 ## Rubric
 1. 70 pts: correctness as shown by the autograder workflow on github.com
+    1. 10 pts for `TestCrawl` continuing to pass
+    1. 60 pts for `TestSearch` passing
 1. 30 pts: code review meeting with the instructor or TA
