@@ -1,7 +1,7 @@
 ---
 layout: assignment
 due: 2022-01-27 23:59:59 -0800
-url: https://github.com
+github_url: https://github.com
 published: false
 ---
 ## Requirements
