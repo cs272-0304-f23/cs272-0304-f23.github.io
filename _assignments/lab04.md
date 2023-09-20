@@ -8,7 +8,7 @@ published: true
 ## Requirements
 1. In this lab you will build your own test case library by splitting some books 
 (represented in HTML) into chapters that you will later search.
-1. The class web site contains copies of 10 of the most-downloaded books from
+1. The class web site contains copies of [10 of the most-downloaded books](https://cs272-0304-f23.github.io/tests/top10/) from
 Project Gutenberg. The HTML follows a predictable pattern that you will
 parse using Go's `html.Parser`
 
