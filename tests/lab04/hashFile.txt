@@ -1,0 +1,22 @@
+package main
+
+import (
+	"hash/fnv"
+	"io"
+	"log"
+	"os"
+)
+
+func hashFile(path string) uint32 {
+	f, err := os.Open(path)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	bts, err := io.ReadAll(f)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	h := fnv.New32a()
+	h.Write(bts)
+	return h.Sum32()
+}

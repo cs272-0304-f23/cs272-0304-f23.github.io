@@ -22,6 +22,14 @@ every chapter you create
 1. We will discuss how you might use `html.Render()`, `html.Node.RemoveChild()`, `filepath`, `os.Create()`, and `os.MkdirAll()`
 
 ## Rubric
-100 pts. for `TestSplit` as shown by the autograder web page. 
-Required test cases TBD coming soon.
+100 pts. for `TestSplit()` as shown by the autograder web page. 
 
+## Testing
+1. Your `TestSplit()` should use [this hash function](/tests/lab04/hashFile.txt) to generate a `uint32` hash digest 
+1. The expected hash values for the files are given [here](/tests/lab04/hashes.txt)
+1. To provide a reference example, [this file](/tests/lab04/chap01.html) contains the correct contents for Chapter 1 of Frankenstein, and produces the hash value `668812877`. Use View Source in your browser to see how the the generated file contains:
+    1. `<html>`
+    1. The contents of the `<head>` node
+    1. `<body>`
+    1. The contents of the `<div class=chapter>` node
+    1. `</body></html>`
