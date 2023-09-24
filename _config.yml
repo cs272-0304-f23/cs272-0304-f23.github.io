@@ -47,9 +47,9 @@ collections:
     permalink: /:collection/:name
 
 ordered-categories:
-  - "Front-End Development"
+  - "Relational Databases"
   - "Concurrency"
-  - "Database"
+  - "Information Retrieval"
   - "Web Crawler"
   - "Intro to Go"
 
