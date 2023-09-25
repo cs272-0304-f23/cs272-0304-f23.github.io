@@ -27,7 +27,7 @@ every chapter you create
 ## Testing
 1. Your `TestSplit()` should use [this hash function](/tests/lab04/hashFile.txt) to generate a `uint32` hash digest 
 1. The expected hash values for the files are given [here](/tests/lab04/hashes.txt)
-1. To provide a reference example, [this file](/tests/lab04/chap01.html) contains the correct contents for Chapter 1 of Frankenstein, and produces the hash value `668812877`. Use View Source in your browser to see how the the generated file contains:
+1. To provide a reference example, [this file](https://github.com/cs272-0304-f23/lab04-given/blob/main/chap01.html) contains the correct contents for Chapter 1 of Frankenstein, and produces the hash value `668812877`. Use View Source in your browser to see how the the generated file contains:
     1. `<html>`
     1. The contents of the `<head>` node
     1. `<body>`
