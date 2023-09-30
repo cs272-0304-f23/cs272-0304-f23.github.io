@@ -32,7 +32,25 @@ published: true
 1. 10 pts: `TestSearch()`
 1. 20 pts: `TestStopWords()`
 1. 30 pts: `TestTfIdf()`
-1. 20 pts: Code review
+1. 20 pts: Code review. Please, no enormous files or functions. Break your code and test cases into smaller files for readability.
 
 ## Required Test Cases
-1. TBD
+1. Data structures for test cases are provided:
+    - [Stopword tests](/tests/project02/stop_tests.go)
+    - [TF-IDF tests](/tests/project02/tfidf_tests.go)
+1. You'll see that I called the lab04 corpus "top10". You can rename that if you like, but don't change the wanted URLs or scores.
+
+## Implementation Tips
+1. You'll want to use the Go `float64` type to calculate the TF-IDF score. For example, you might calculate  
+    ```go
+    tf := (float64) termCount / (float64) wordsInDoc
+    ```
+1. Some terms generate the same TF-IDF score. In order to make the test cases deterministic (same order for all hits with the same score), your implementation of the `Less()` function in `sort.Interface` should check for the same score, and if so, also sort by the URL. For example:
+    ```go
+    if scoreOfI == scoreOfJ {
+        return urlOfJ > urlOfI
+    }
+    ```
+1. Remember to push your code to the `dev` branch for grading
+1. Remember to push your corpus so the autograder can test against the chapter files you created
+1. You do NOT need to include the code for lab04 or implement the `TestSplit` test case
