@@ -13,7 +13,7 @@ published: true
 ## Given
 
 1. We will discuss two potential approaches in lecture
-1. Revised TF-IDF test cases are available [here](/tests/project03/tfidf.go) and the corpus used to generate it is available [here](/tests/project03/top10.zip)
+1. Revised TF-IDF test cases are available [here](/tests/project03/test-cases.go) and the corpus used to generate it is available [here](/tests/project03/top10.zip)
 
 ## Rubric
 
