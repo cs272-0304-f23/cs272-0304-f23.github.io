@@ -47,7 +47,7 @@ collections:
     permalink: /:collection/:name
 
 ordered-categories:
-  - "Relational Databases"
+  - "Databases"
   - "Concurrency"
   - "Information Retrieval"
   - "Web Crawler"
