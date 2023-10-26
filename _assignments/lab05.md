@@ -1,6 +1,6 @@
 ---
 layout: assignment
-due: 2023-10-26 23:59:59 -0800
+due: 2023-10-27 23:59:59 -0800
 github_url: https://classroom.github.com/a/Qjtk9WuF
 published: true
 ---
