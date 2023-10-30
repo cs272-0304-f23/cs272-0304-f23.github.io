@@ -5,7 +5,7 @@ github_url: https://classroom.github.com/a/1qzVcG6f
 published: true
 ---
 
-## Background sldkfj sdlkfj sdkljf
+## Background
 
 1. For this lab, you will design a database schema using [SQLite](https://sqlite.org/index.html)
 1. In a subsequent project, we will adapt your project03 code to use this schema 
