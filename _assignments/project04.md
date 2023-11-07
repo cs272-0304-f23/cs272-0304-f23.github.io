@@ -21,8 +21,8 @@ published: true
 ## Rubric
 
 1. 10 pts. TestDisallow (same results as the in-memory map of maps)
-1. 40 pts. TestTfIdf
-1. 50 pts. Code review for SQL and relational design. Please pass the test cases before coming to the code review meeting.
+1. 50 pts. TestTfIdf
+1. 40 pts. Code review for SQL and relational design. Please pass the test cases before coming to the code review meeting.
 1. 5 pts. (Extra credit)
     1. Use a Go `interface` to build an abstraction for the persistent SQLite database vs. the in-memory map of maps
     1. Make the indexing code switchable on the command line using a Go [flag](https://pkg.go.dev/flag), e.g. 
