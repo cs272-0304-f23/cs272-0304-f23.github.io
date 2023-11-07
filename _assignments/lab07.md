@@ -26,6 +26,9 @@ published: true
     1. npr.org
 
 1. You will develop two test cases using TF-IDF scores similar to those provided for project03 and lab05.
+1. Limits
+    1. If no `crawl-delay` is found, you may use 100ms as a default
+    1. Since some sites have more documents than others, you may stop crawling after 10,000 documents
 
 ## Given
 
