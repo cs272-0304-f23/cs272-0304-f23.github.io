@@ -33,6 +33,21 @@ published: true
 ## Given
 
 1. We will discuss the XML format and Go's support for XML in lecture
+1. You'll want to use the Go tags to assist with unmarshalling the XML
+1. Here's an example Go data structure which can be used to unmarshal the XML given at [http://usfca.edu/sitemap.xml](https://www.usfca.edu/sitemap.xml) (use View Source to the the raw XML)
+    ```go
+    type(
+    	Sitemap struct {
+            Loc     string `xml:"loc"`
+            LastMod string `xml:"lastmod"`
+        }
+
+        SitemapIndex struct {
+            Sitemaps []Sitemap `xml:"sitemap"`
+        }
+    )
+    ```
+1. You can extend this to the `<urlset>` and `<url>` structures as shown at [https://www.usfca.edu/sitemap.xml?page=1](https://www.usfca.edu/sitemap.xml?page=1) (use View Source to see the raw XML)
 
 ## Rubric
 
