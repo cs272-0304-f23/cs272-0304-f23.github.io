@@ -51,6 +51,7 @@ published: true
 
 ## Rubric
 
-1. 50 pts for `TestCase1`
-1. 50 pts for `TestCase2`
+1. 50 pts for `TestCase1` tested locally (not on Github)
+1. 50 pts for `TestCase2` tested locally (not on Github)
+1. Provide a screen shot in your Github repo which shows the test cases passing. Crawling a real web site will take too long for the 5 minute time limit for Github Actions
 1. 5 pts Extra Credit. Choose a site which has a recursive `sitemap.xml`
