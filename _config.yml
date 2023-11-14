@@ -47,6 +47,7 @@ collections:
     permalink: /:collection/:name
 
 ordered-categories:
+  - "Putting it all together"
   - "Databases"
   - "Concurrency"
   - "Information Retrieval"
