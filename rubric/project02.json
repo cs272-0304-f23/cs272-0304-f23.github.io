@@ -1,0 +1,11 @@
+{
+    "tests": {
+      "TestDownload": 5,
+      "TestCrawl": 5,
+      "TestSearch": 10,
+      "TestStop": 20,
+      "TestTfIdf": 30
+    },
+    "dueDate": "2023-10-03"
+  }
+  

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Programming SQL in Go | CS 272 - Software Development</title>
+    <meta name="description" content="">
+    <meta name="author" content="Phil Peterson">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="/slides/sql-in-go">
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="CS 272 - Software Development" href="/feed.xml"/>
+
+    <!-- Code highlighting theme used for highlight.js in reveal.js slides -->
+    <link rel="stylesheet" href="/assets/plugin/highlight/classic-like.css">
+
+		<!-- Code highlighting theme used for rouge in jekyll pages
+    <link rel="stylesheet" href="/assets/css/rouge-highlight/github-dark.css">
+    -->
+    <!-- Reveal CSS -->
+    <link rel="stylesheet" href="/assets/dist/reset.css">
+    <link rel="stylesheet" href="/assets/dist/reveal.css">
+    <link rel="stylesheet" href="/assets/dist/theme/dons.css" id="theme">
+
+</head>
+
+<body>
+<div class="reveal">
+    <div class="slides">
+
+        <section data-markdown
+                 data-separator="^---"
+                 data-separator-vertical="^___"
+                 data-charset="utf-8"
+                 data-notes="^Note:">
+            <script type="text/template"><br>
+<br>
+
+# Programming SQL in Go
+
+---
+
+## API Design
+
+1. Go contains a package called `database/sql` which wraps all of the SQL-like databases
+1. You need to an install an actual database underneath that API
+1. We will use SQLite
+1. This deck illustrates two alternative approaches
+
+---
+
+## Install SQLite
+
+Widely used, but requires `gcc`
+
+```sh
+$ go get github.com/mattn/go-sqlite3
+```
+
+```go
+import _ "github.com/mattn/go-sqlite3"
+```
+
+Pure Go
+```sh
+$ go get modernc.org/sqlite
+```
+
+```go
+import _ "modernc.org/sqlite"
+```
+
+---
+
+<br>
+<br>
+
+# Using Go [`database/sql`](https://pkg.go.dev/database/sql)
+
+---
+
+## Connect to a Database
+
+```go
+import "datbase/sql"
+
+db, err := sql.Open("sqlite", "example.db")
+if err != nil 
+    // error handling
+defer db.Close()
+
+// operate on the database
+```
+
+Under the covers
+```sql
+CREATE DATABASE example.db
+```
+---
+
+## Creating Tables
+
+```go
+result, err := db.Exec(`
+    CREATE TABLE customers(
+        id integer PRIMARY KEY AUTOINCREMENT,
+        name text UNIQUE,
+        street_number integer NOT NULL,
+        street_name text NOT NULL,
+        city text NOT NULL,
+        state varchar(2) NOT NULL,
+        postal_code integer NOT NULL
+    );
+`)
+```
+
+---
+
+## type `sql.Result`
+
+```go
+type Result interface {
+	LastInsertId() (int64, error)
+	RowsAffected() (int64, error)
+}
+```
+
+---
+
+## Inserting Rows
+
+```go
+result, err := db.Exec(`
+    INSERT INTO customers(name, street_number, street_name, 
+    city, state, postal_code) 
+    VALUES("Widgets Inc", 123, "Main St", "San Francisco", 
+    "CA", 94117);
+`)
+if err != nil
+    // error handling
+
+newId, err := result.LastInsertId()
+if err == nil {
+    fmt.Println("new ID: ", newId)
+}
+```
+---
+
+## Querying
+
+```go
+zip := 94117
+rows, err := db.Query(`
+    SELECT (name, street_number, street_name) 
+    FROM customers WHERE postal_code = ?
+`, zip)
+if err != nil 
+    // error handling
+
+for rows.Next() {
+    var custName, streetName string
+    var streetNumber int
+    err = rows.Scan(&custName, &streetNumber, &streetName)
+    if err == nil
+        fmt.Println(custName, streetNumber, streetName) 
+}
+```
+
+---
+
+<br>
+<br>
+
+# Cumbersome?
+
+<br>
+
+## Can we unify the SQL world with Go structs?
+
+---
+<br>
+<br>
+
+## Object Relational Mapping (ORM)
+
+1. Translate between structs/classes and the comma-separated tuples of SQL
+1. Available in many languages, including Java and Go
+1. What Go language feature could help us?
+1. gorm is a ([fantastic](https://gorm.io/)) ORM for Go
+
+---
+
+## Installing gorm
+
+```sh
+go get -u gorm.io/gorm
+go get -u gorm.io/driver/sqlite
+```
+
+```go
+import (
+  "gorm.io/gorm"
+  "gorm.io/driver/sqlite"
+)
+```
+
+---
+
+## Connect to a Database
+
+```go
+type Customer struct {
+    gorm.Model           // <- what's happening here?
+    Name         string
+    StreetNumber int
+    StreetName   string  //...
+}
+
+db, err := gorm.Open(sqlite.Open("test.db"), &gorm.Config{})
+if err != nil {
+  panic("failed to connect database")
+}
+
+// Migrate the schema
+db.AutoMigrate(&Customer{})
+```
+Under the covers
+```sql
+CREATE TABLE customers(...);
+```
+
+---
+
+## Inserting Rows
+
+```go
+// Remember to pass the address of the struct
+result := db.Create(&Customer{
+    Name: "Widgets Inc",
+    StreetNumber: 123,
+    StreetName: "Main St",
+    ...
+})
+
+if result.Error == nil {
+    fmt.Println(result.RowsAffected)
+}
+
+```
+
+---
+
+## Querying
+
+```go
+var customer Customer
+result := db.First(&customer)
+```
+
+Under the covers
+
+```sql
+SELECT * FROM customers LIMIT 1;
+```
+
+---
+
+## More Querying
+
+```go
+cust := Customer{ID: 1}
+result := db.First(&cust)
+```
+
+Under the covers
+
+```sql
+SELECT * FROM customers WHERE id = 1;
+```
+
+---
+
+## Updating Rows
+
+```go
+cust := Customer{ID: 1}
+result := db.Model(&cust).Update("postal_code", 95070)
+```
+
+Under the covers
+```sql
+UPDATE customers SET postal_code=95070 WHERE id=1;
+```
+
+---
+
+## Struct tags
+
+1. In Go, a struct member can be followed by a "tag", expressed in raw bytes
+    ```go
+    type Customer struct {
+        ID int      `json:"id"`
+        Name string `json:"name"`
+    }
+    ```
+
+---
+
+## Tags in gorm
+
+1. gorm translates Go's CamelCase names to SQL snake_case names automatically
+1. However, `gorm.Model` shows other ways to use Go tags
+    ```go
+    // gorm.Model definition
+    type Model struct {
+        ID        uint           `gorm:"primaryKey"`
+        CreatedAt time.Time
+        UpdatedAt time.Time
+        DeletedAt gorm.DeletedAt `gorm:"index"`
+    }
+    ```
+
+---
+
+## Constraints in gorm
+
+1. Primary key and foreign key are created by `db.Migrate()`
+1. Other constraints can be added via tags
+    ```go
+    type Customer struct {
+        gorm.Model
+        Name string `gorm:"index;unique;not null"`
+    }
+    ```
+
+---
+## Documentation
+
+1. gorm is extensively documented: [https://gorm.io/docs/index.html](https://gorm.io/docs/index.html)
+
+---
+## ORM Full Disclosure
+
+1. ORMs can be convenient, but there are tradeoffs
+1. What tradeoffs do you see with gorm-like tools?
+1. The Internet has [opinions](https://community.spiceworks.com/topic/2455001-wrecking-your-database). 
+Lots of [opinions](https://www.confessionsofadataguy.com/orms-are-the-cigarettes-of-the-data-engineering-world/)
+
+
+</script>
+        </section>
+
+    </div>
+</div>
+<script src="/assets/dist/reveal.js"></script>
+<script src="/assets/plugin/markdown/markdown.js"></script>
+<script src="/assets/plugin/highlight/highlight.js"></script>
+<script src="/assets/plugin/search/search.js"></script>
+<script src="/assets/plugin/zoom/zoom.js"></script>
+<script src="/assets/plugin/notes/notes.js"></script>
+<script src="/assets/plugin/math/math.js"></script>
+<script>
+  // https://revealjs.com/config/
+
+  Reveal.initialize({
+    // Display presentation control arrows
+    controls: true,
+
+    // Determines where controls appear, "edges" or "bottom-right"
+    controlsLayout: 'bottom-right',
+
+    // Visibility rule for backwards navigation arrows; "faded", "hidden"
+    // or "visible"
+    controlsBackArrows: 'faded',
+
+    // Display a presentation progress bar
+    progress: true,
+
+    // Enable keyboard shortcuts for navigation
+    keyboard: true,
+
+    // Vertical centering of slides
+    center: false,
+
+    // Enable the slide overview mode
+    overview: true,
+
+    // Enables touch navigation on devices with touch input
+    touch: true,
+
+    // Add the current slide number to the URL hash so that reloading the
+    // page/copying the URL will return you to the same slide
+    hash: true,
+
+    // Push each slide change to the browser history.  Implies `hash: true`
+    history: false,
+
+    transition: 'slide',
+
+    // Display the page number of the current slide
+    // - true:    Show slide number
+    // - false:   Hide slide number
+    //
+    // Can optionally be set as a string that specifies the number formatting:
+    // - "h.v":   Horizontal . vertical slide number (default)
+    // - "h/v":   Horizontal / vertical slide number
+    // - "c":   Flattened slide number
+    // - "c/t":   Flattened slide number / total slides
+    //
+    // Alternatively, you can provide a function that returns the slide
+    // number for the current slide. The function should take in a slide
+    // object and return an array with one string [slideNumber] or
+    // three strings [n1,delimiter,n2]. See #formatSlideNumber().
+    slideNumber:  'c' ,
+
+
+    // Can be used to limit the contexts in which the slide number appears
+    // - "all":      Always show the slide number
+    // - "print":    Only when printing to PDF
+    // - "speaker":  Only in the speaker view
+    showSlideNumber: 'all',
+
+    // https://revealjs.com/plugins/#built-in-plugins
+    plugins: [
+      RevealMarkdown,
+      RevealHighlight,
+      RevealSearch,
+      RevealZoom,
+      RevealNotes,
+      RevealMath
+    ]
+  });
+</script>
+
+</body>
+</html>

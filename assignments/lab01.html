@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Lab01 | CS 272 - Software Development</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Lab01" />
+<meta name="author" content="Phil Peterson" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Step 1: Set up your terminal environment" />
+<meta property="og:description" content="Step 1: Set up your terminal environment" />
+<meta property="og:site_name" content="CS 272 - Software Development" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-12-05T17:26:35+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Lab01" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Phil Peterson"},"headline":"Lab01","dateModified":"2023-12-05T17:26:35+00:00","datePublished":"2023-12-05T17:26:35+00:00","description":"Step 1: Set up your terminal environment","url":"/assignments/lab01","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"/assignments/lab01"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="CS 272 - Software Development" /><head>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@400&display=swap" rel="stylesheet">
+</head>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CS 272 - Software Development</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/help/">Getting Help</a><a class="page-link" href="/syllabus/">Syllabus</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper"><h1 class="page-heading">Lab01</h1><div class="container">
+  Due: 
+  <span class="due-date">
+    Fri, Aug 25, 2023 at 11:59 PM 
+  </span>
+  to <a href="https://classroom.github.com/a/p2ShvdwK">Github Classroom Assignment</a>
+  <hr>
+  <section id="main_content">
+    <h2 id="step-1-set-up-your-terminal-environment">Step 1: Set up your terminal environment</h2>
+
+<ol>
+  <li>For this course, you will develop software locally on your laptop. If you are not familiar with the Unix shell, please review my <a href="https://github.com/usfca-cs-tools/docs/blob/main/shell-basics.md">Shell Basics</a> document.</li>
+  <li>
+    <p>Terminal setup (<a onclick="toggle_display('terminal_mac')">Mac</a>, <a onclick="toggle_display('terminal_win')">Windows</a>)</p>
+
+    <div id="terminal_mac" class="div-toggle" style="display:none">
+      <p>For Mac:</p>
+      <ul>
+        <li>Apple’s Terminal app should work ok</li>
+        <li>I prefer <a href="https://iterm2.com/">iTerm2</a> because it works well with my preferred terminal-mode editor, <a href="https://iterm2.com/">micro</a></li>
+      </ul>
+    </div>
+
+    <div id="terminal_win" class="div-toggle" style="display:none">
+      <p>For Windows:</p>
+      <ul>
+        <li>I recommend using <a href="https://gitforwindows.org/">Git For Windows</a>. Git Bash offers a Unix-like shell environment.</li>
+        <li>If you already have <a href="https://learn.microsoft.com/en-us/windows/wsl/install">Windows Subsystem for Linux</a>, that’s also fine</li>
+      </ul>
+    </div>
+  </li>
+  <li>You may use the terminal-mode editor of your choice (e.g. micro, nano, vim, emacs)</li>
+</ol>
+
+<h2 id="step-2-set-up-ssh-for-local-development">Step 2: Set up <code class="language-plaintext highlighter-rouge">ssh</code> for local development</h2>
+
+<ol>
+  <li>Follow <a href="https://cs221-03-f23.github.io/docs/ssh-local-setup.html">these steps</a> (shared with my CS 221 course)</li>
+</ol>
+
+<h2 id="step-3-set-up-your-go-toolchain">Step 3: Set up your Go toolchain</h2>
+
+<ol>
+  <li>
+    <p>Install the <a href="https://go.dev/dl/">Go toolchain</a>. Be careful to choose the right build for your laptop (<a onclick="toggle_display('go_mac')">Mac</a>, <a onclick="toggle_display('go_win')">Windows</a>)</p>
+
+    <div id="go_mac" class="div-toggle" style="display:none">
+      <p>For Mac:</p>
+      <ul>
+        <li>Newer Apple laptops with M1 or M2 processors need the <code class="language-plaintext highlighter-rouge">darwin-arm64</code> build</li>
+        <li>Older Apple laptops with Intel processors need the <code class="language-plaintext highlighter-rouge">darwin-amd64</code> build</li>
+        <li>The Go toolchain installs into <code class="language-plaintext highlighter-rouge">/usr/local/</code> and is automatically added to the <code class="language-plaintext highlighter-rouge">PATH</code> (by installing itself into <code class="language-plaintext highlighter-rouge">/etc/path.d/</code>)
+          <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  phil@Phils-MacBook-Pro:~ % which go
+  /usr/local/go/bin/go
+
+  phil@Phils-MacBook-Pro:~ % go version
+  go version go1.20.5 darwin/arm64
+</code></pre></div>          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div id="go_win" class="div-toggle" style="display:none">
+      <p>For Windows Git Bash:</p>
+      <ul>
+        <li>Windows laptops need the <code class="language-plaintext highlighter-rouge">windows-amd64</code> build</li>
+        <li>The Go toolchain installs into <code class="language-plaintext highlighter-rouge">C:\Program Files\Go</code> and is added to the <code class="language-plaintext highlighter-rouge">PATH</code> automatically
+          <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  phil@PHILPETERSO43DB MINGW64 /
+  <span class="nv">$ </span>which go
+  /c/Program Files/Go/bin/go
+
+  phil@PHILPETERSO43DB MINGW64 /
+  <span class="nv">$ </span>go version
+  go version go1.20.5 windows/amd64
+</code></pre></div>          </div>
+        </li>
+      </ul>
+    </div>
+  </li>
+  <li>Install the <code class="language-plaintext highlighter-rouge">dlv</code> (<a href="https://github.com/go-delve/delve">delve</a>) debugger.
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> go <span class="nb">install </span>github.com/go-delve/delve/cmd/dlv@latest
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Edit your shell config file (<a onclick="toggle_display('dlv_mac')">Mac</a>, <a onclick="toggle_display('dlv_win')">Windows</a>)</p>
+
+    <div id="dlv_mac" class="div-toggle" style="display:none">
+      <p>For Mac:</p>
+      <ol>
+        <li>Edit <code class="language-plaintext highlighter-rouge">~/.zshrc</code></li>
+        <li>At the bottom of the file, add <code class="language-plaintext highlighter-rouge">export PATH=~/go/bin:$PATH</code></li>
+        <li>Apply the change to your shell: <code class="language-plaintext highlighter-rouge">source ~/.zshrc</code></li>
+      </ol>
+    </div>
+
+    <div id="dlv_win" class="div-toggle" style="display:none">
+      <p>For Windows Git Bash:</p>
+      <ol>
+        <li>Edit <code class="language-plaintext highlighter-rouge">~/.bashrc</code></li>
+        <li>At the bottom of the file, add <code class="language-plaintext highlighter-rouge">export PATH=~/go/bin:$PATH</code></li>
+        <li>Apply the change to your shell: <code class="language-plaintext highlighter-rouge">source ~/.bashrc</code></li>
+      </ol>
+    </div>
+  </li>
+  <li>Check to see that <code class="language-plaintext highlighter-rouge">dlv</code> is on the path
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> phil@Phils-MBP:~ % which dlv
+ /Users/phil/go/bin/dlv
+</code></pre></div>    </div>
+  </li>
+  <li>Optional: If you want to use an Integrated Development Environment (IDE), you may use <a href="https://code.visualstudio.com/">VS Code</a>.
+    <ol>
+      <li>VS Code will offer to install extensions for <code class="language-plaintext highlighter-rouge">go</code> and <code class="language-plaintext highlighter-rouge">gopls</code>. You should accept both.</li>
+    </ol>
+  </li>
+  <li>Unsupported: There is a Go-specific IDE called <a href="https://www.jetbrains.com/go/">GoLand</a> that you’re welcome to try. I won’t be supporting it.</li>
+</ol>
+
+<h2 id="given">Given</h2>
+
+<ol>
+  <li>Clone the lab01 repo using the link above and <code class="language-plaintext highlighter-rouge">cd</code> into that directory</li>
+  <li>Use your preferred editor to enter this <code class="language-plaintext highlighter-rouge">go</code> program, which prints <code class="language-plaintext highlighter-rouge">Hello, World</code> into the terminal
+    <div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">package</span> <span class="n">main</span>
+
+ <span class="k">import</span> <span class="s">"fmt"</span>
+
+ <span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+     <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Hello, World"</span><span class="p">)</span>
+ <span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>To run the program
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">$ </span>go run main.go
+ Hello, World
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="rubric">Rubric</h2>
+
+<ol>
+  <li>100 pts
+    <ol>
+      <li>Commit and push your Hello World</li>
+      <li>Show me your environment working during the Week 1 lab section.</li>
+    </ol>
+  </li>
+</ol>
+
+<script>
+    function toggle_display(id_name) {
+        var e = document.getElementById(id_name);
+        if (e.style.display === "none") {
+            e.style.display = "block";
+        } else {
+            e.style.display = "none";
+        }
+    }
+</script>
+
+
+  </section>
+</div>
+
+      </div>
+    </main>
+
+  </body>
+
+</html>

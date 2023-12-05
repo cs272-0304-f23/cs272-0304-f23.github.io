@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Go Basics | CS 272 - Software Development</title>
+    <meta name="description" content="">
+    <meta name="author" content="Phil Peterson">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="/slides/week01-lec02">
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="CS 272 - Software Development" href="/feed.xml"/>
+
+    <!-- Code highlighting theme used for highlight.js in reveal.js slides -->
+    <link rel="stylesheet" href="/assets/plugin/highlight/classic-like.css">
+
+		<!-- Code highlighting theme used for rouge in jekyll pages
+    <link rel="stylesheet" href="/assets/css/rouge-highlight/github-dark.css">
+    -->
+    <!-- Reveal CSS -->
+    <link rel="stylesheet" href="/assets/dist/reset.css">
+    <link rel="stylesheet" href="/assets/dist/reveal.css">
+    <link rel="stylesheet" href="/assets/dist/theme/dons.css" id="theme">
+
+</head>
+
+<body>
+<div class="reveal">
+    <div class="slides">
+
+        <section data-markdown
+                 data-separator="^---"
+                 data-separator-vertical="^___"
+                 data-charset="utf-8"
+                 data-notes="^Note:">
+            <script type="text/template"><br><br>
+# Intro to Go
+---
+
+# Hello World
+
+```go
+package "main"
+
+import fmt
+
+main() {
+    fmt.Println("Hello, World")
+}
+```
+---
+# Observations
+
+1. All source files begin with `package` and the name of the package
+1. `import` means both introduce the name **and** the implementation (like python, not like C)
+1. `fmt` is the [package](https://pkg.go.dev/fmt) to use to output formatted text 
+1. The format shown for braces is required (open `{` on the next line is illegal)
+1. Unused imports are illegal
+
+---
+# Scalar Types
+
+1. `int`, `uint`, `bool`, `byte` (like C)
+1. `rune` means a single UTF-8 character, e.g. é or å
+
+---
+# Go is strongly-typed
+
+```go
+var i int = 0
+var j uint = 1
+j = i  // incompatible assignment
+i = j  // incompatible assignment
+
+j = uint(i)  // works but ugly. think twice
+
+var b bool = false
+b = i  // incompatible assignment
+```
+1. The order is `name type` not `type name` like C
+2. Unused variables are illegal
+
+---
+# Zero initialization
+
+```go
+var i int
+fmt.Println("i: ", i)
+
+var s string
+fmt.Println("s: ", s)
+```
+1. All variables (scalars, strings, structs, ...) are automatically initialized to zero
+
+---
+# Short Declaration
+
+```go
+i := 1
+s := "foo"
+thing := calcThing()
+```
+1. Declare a variable with the type of the thing on the right
+2. You won't need `var` very much. `:=` is idiomatic.
+
+---
+# Arrays
+
+To declare an array:
+```go
+arr := [3]int
+```
+To initialize:
+```go
+arr := [3]int{2, 4, 6}
+```
+1. Array length is immutable
+1. Array references are bounds-checked
+
+---
+# Slices
+
+Slices are variable-length references
+```go
+s := make([]int)
+s = append(s, 1)
+```
+1. `make` creates a slice and initializes its length to zero
+1. `append` manipulates the underlying array, reallocating as necessary
+1. In C: `int **ppi;`
+
+---
+# Bounds Checking
+
+```go
+arr := [3]int
+i := arr[4] // panics the go runtime
+```
+
+---
+# Looping
+```go
+for i := 0; i < len(arr); i++ {
+    fmt.Printf("arr[%d] = %d\n", i,  arr[i])
+}
+
+for idx, val := range arr {
+    fmt.Printf("arr[%d] = %d\n", idx, val)
+}
+```
+1. `range` is an idiomatic way to refer to the index and the value
+1. `len` gives the logical length of a slice (or `string` or `map`)
+
+---
+# For is the only looping construct
+```go
+var idx int
+for {
+    if idx == len(arr) {
+        break
+    }
+    fmt.Printf("arr[%d] = %d\n", arr[idx])
+    idx++
+}
+```
+---
+# Functions
+
+```go
+func add2(a, b int) int {
+    return a + b
+}
+```
+1. Use the `func` keyword
+1. Multiple params of same type
+1. Return type follows params
+1. Exported names are capitalized, e.g. `Add2()`</script>
+        </section>
+
+    </div>
+</div>
+<script src="/assets/dist/reveal.js"></script>
+<script src="/assets/plugin/markdown/markdown.js"></script>
+<script src="/assets/plugin/highlight/highlight.js"></script>
+<script src="/assets/plugin/search/search.js"></script>
+<script src="/assets/plugin/zoom/zoom.js"></script>
+<script src="/assets/plugin/notes/notes.js"></script>
+<script src="/assets/plugin/math/math.js"></script>
+<script>
+  // https://revealjs.com/config/
+
+  Reveal.initialize({
+    // Display presentation control arrows
+    controls: true,
+
+    // Determines where controls appear, "edges" or "bottom-right"
+    controlsLayout: 'bottom-right',
+
+    // Visibility rule for backwards navigation arrows; "faded", "hidden"
+    // or "visible"
+    controlsBackArrows: 'faded',
+
+    // Display a presentation progress bar
+    progress: true,
+
+    // Enable keyboard shortcuts for navigation
+    keyboard: true,
+
+    // Vertical centering of slides
+    center: false,
+
+    // Enable the slide overview mode
+    overview: true,
+
+    // Enables touch navigation on devices with touch input
+    touch: true,
+
+    // Add the current slide number to the URL hash so that reloading the
+    // page/copying the URL will return you to the same slide
+    hash: true,
+
+    // Push each slide change to the browser history.  Implies `hash: true`
+    history: false,
+
+    transition: 'slide',
+
+    // Display the page number of the current slide
+    // - true:    Show slide number
+    // - false:   Hide slide number
+    //
+    // Can optionally be set as a string that specifies the number formatting:
+    // - "h.v":   Horizontal . vertical slide number (default)
+    // - "h/v":   Horizontal / vertical slide number
+    // - "c":   Flattened slide number
+    // - "c/t":   Flattened slide number / total slides
+    //
+    // Alternatively, you can provide a function that returns the slide
+    // number for the current slide. The function should take in a slide
+    // object and return an array with one string [slideNumber] or
+    // three strings [n1,delimiter,n2]. See #formatSlideNumber().
+    slideNumber:  'c' ,
+
+
+    // Can be used to limit the contexts in which the slide number appears
+    // - "all":      Always show the slide number
+    // - "print":    Only when printing to PDF
+    // - "speaker":  Only in the speaker view
+    showSlideNumber: 'all',
+
+    // https://revealjs.com/plugins/#built-in-plugins
+    plugins: [
+      RevealMarkdown,
+      RevealHighlight,
+      RevealSearch,
+      RevealZoom,
+      RevealNotes,
+      RevealMath
+    ]
+  });
+</script>
+
+</body>
+</html>

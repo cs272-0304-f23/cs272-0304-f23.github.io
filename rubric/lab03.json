@@ -1,0 +1,7 @@
+{
+  "tests": {
+    "TestDownload": 70,
+    "TestCrawl": 30
+  },
+  "dueDate": "2023-09-11"
+}
