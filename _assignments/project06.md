@@ -35,4 +35,6 @@ Since this project wraps the semester, code review meetings will not include any
     1. Good effort (40 pts)
     1. Great effort (50 pts)
 1. Implement one of the three IR features given above (50 pts)
-1. Extra credit: implement two of the IR features (5 pts)
+1. Extra credit: implement two of the IR features
+    1. Good effort (5 pts)
+    1. Great effort (5 additional points)
